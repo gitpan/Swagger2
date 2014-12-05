@@ -6,14 +6,20 @@ Swagger2 - Swagger RESTful API Documentation
 
 =head1 VERSION
 
-0.01
+0.02
 
 =head1 DESCRIPTION
 
 THIS MODULE IS EXPERIMENTAL! ANY CHANGES CAN HAPPEN!
 
 L<Swagger2> is a module for generating, parsing and transforming
-L<swagger|http://swagger.io/> API documentation.
+L<swagger|http://swagger.io/> API documentation. It has support for reading
+swagger specification in JSON notation and it can also read YAML files,
+if a L</YAML parser> is installed.
+
+This distribution comes with a L<Mojolicious> plugin,
+L<Mojolicious::Plugin::Swagger2>, which can set up routes and perform input
+and output validation.
 
 =head1 RECOMMENDED MODULES
 
@@ -46,7 +52,7 @@ use Mojo::JSON::Pointer;
 use Mojo::URL;
 use Mojo::Util ();
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 my @YAML_MODULES = qw( YAML::Tiny YAML YAML::Syck YAML::XS );
 my $YAML_MODULE
@@ -93,7 +99,7 @@ has base_url => sub {
   my $url  = Mojo::URL->new;
   my ($schemes, $v);
 
-  $self->load if '' . $self->url;
+  $self->load if !$self->{tree} and '' . $self->url;
   $schemes = $self->tree->get('/schemes') || [];
   $url->host($self->tree->get('/host')     || 'example.com');
   $url->path($self->tree->get('/basePath') || '/');
@@ -117,6 +123,22 @@ has ua => sub {
 sub url { shift->{url} }
 
 =head1 METHODS
+
+=head2 expand
+
+  $swagger = $self->expand;
+
+This method returns a new C<Swagger2> object, where all the references are
+resolved.
+
+=cut
+
+sub expand {
+  my $self  = shift;
+  my $class = Scalar::Util::blessed($self);
+
+  $class->new(%$self)->tree($self->_resolve_refs($self->tree, Mojo::JSON::Pointer->new({})));
+}
 
 =head2 load
 
@@ -230,7 +252,7 @@ sub _get_definition {
     }
   }
 
-  return $definition->{properties};
+  return $definition;
 }
 
 sub _resolve_refs {

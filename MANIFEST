@@ -2,17 +2,21 @@
 .ship.conf
 Changes
 cpanfile
+lib/Mojolicious/Plugin/Swagger2.pm
 lib/Swagger2.pm
 lib/Swagger2/POD.pm
+lib/Swagger2/SchemaValidator.pm
 Makefile.PL
 MANIFEST			This list of files
 README
 t/00-basic.t
+t/Api.pm
 t/data/petstore.json
 t/data/petstore.pod
 t/data/petstore.yaml
 t/load-json.t
 t/load-yaml.t
+t/plugin.t
 t/pod-as-string.t
 t/swagger.t
 META.yml                                 Module YAML meta-data (added by MakeMaker)
