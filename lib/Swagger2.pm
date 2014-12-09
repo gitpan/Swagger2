@@ -6,7 +6,7 @@ Swagger2 - Swagger RESTful API Documentation
 
 =head1 VERSION
 
-0.03
+0.04
 
 =head1 DESCRIPTION
 
@@ -54,7 +54,7 @@ use Mojo::Util 'md5_sum';
 use File::Spec;
 use constant CACHE_DIR => $ENV{SWAGGER2_CACHE_DIR} || '';
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 # Should be considered internal
 our $SPEC_FILE = do {
@@ -156,7 +156,7 @@ sub url { shift->{url} }
   $swagger = $self->expand;
 
 This method returns a new C<Swagger2> object, where all the
-L<references|https://tools.ietf.org/html/draft-zyp-json-schema-03#section-5.28>:
+L<references|https://tools.ietf.org/html/draft-zyp-json-schema-03#section-5.28>
 are resolved.
 
 =cut

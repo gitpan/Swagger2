@@ -19,9 +19,8 @@ no_index:
     - inc
 requires:
   Mojolicious: 5.0
-  autovivification: 0.14
 resources:
   bugtracker: https://github.com/jhthorsen/swagger2/issues
   homepage: https://github.com/jhthorsen/swagger2
   repository: https://github.com/jhthorsen/swagger2.git
-version: 0.03
+version: 0.04

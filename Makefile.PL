@@ -19,8 +19,7 @@ WriteMakefile(
 }
 ,
   PREREQ_PM => {
-  'Mojolicious' => '5.0',
-  'autovivification' => '0.14'
+  'Mojolicious' => '5.0'
 }
 ,
   test => { TESTS => 't/*.t' },

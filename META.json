@@ -32,8 +32,7 @@
       },
       "runtime" : {
          "requires" : {
-            "Mojolicious" : "5.0",
-            "autovivification" : "0.14"
+            "Mojolicious" : "5.0"
          }
       }
    },
@@ -47,5 +46,5 @@
          "url" : "https://github.com/jhthorsen/swagger2.git"
       }
    },
-   "version" : "0.03"
+   "version" : "0.04"
 }
