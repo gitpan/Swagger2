@@ -5,19 +5,35 @@ cpanfile
 lib/Mojolicious/Plugin/Swagger2.pm
 lib/Swagger2.pm
 lib/Swagger2/POD.pm
+lib/Swagger2/schema.json
 lib/Swagger2/SchemaValidator.pm
 Makefile.PL
 MANIFEST			This list of files
 README
 t/00-basic.t
 t/Api.pm
+t/data/cache/80aad97ce8edcce8a0968125b84dd705
 t/data/petstore.json
 t/data/petstore.pod
 t/data/petstore.yaml
+t/expand.t
+t/jv-allof.t
+t/jv-anyof.t
+t/jv-array.t
+t/jv-basic.t
+t/jv-enum.t
+t/jv-integer.t
+t/jv-not.t
+t/jv-object.t
+t/jv-oneof.t
+t/jv-required.t
+t/jv-string.t
+t/jv-union.t
 t/load-json.t
 t/load-yaml.t
 t/plugin.t
 t/pod-as-string.t
 t/swagger.t
+t/validate.t
 META.yml                                 Module YAML meta-data (added by MakeMaker)
 META.json                                Module JSON meta-data (added by MakeMaker)
