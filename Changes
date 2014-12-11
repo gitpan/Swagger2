@@ -1,5 +1,9 @@
 Changelog for Swagger2
 
+0.08     Thu Dec 11 11:08:05 2014
+       * Change "floats" and "double" formats are not tested.
+       * Add support for "byte" format
+
 0.07     Wed Dec 10 14:58:15 2014
        * Fix test for negative integers
        * Add more formats: date, double, float, int32 and int64
