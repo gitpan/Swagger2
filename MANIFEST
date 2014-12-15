@@ -3,6 +3,7 @@
 .travis.yml
 Changes
 cpanfile
+lib/Mojolicious/Command/swagger2.pm
 lib/Mojolicious/Plugin/Swagger2.pm
 lib/Swagger2.pm
 lib/Swagger2/POD.pm
