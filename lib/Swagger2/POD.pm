@@ -108,7 +108,7 @@ sub _path_request_to_string {
   }
 
   $str .= sprintf "=head3 Parameters\n\n";
-  $str .= sprintf "%s\n", _ascii_table(\@table, '  ');
+  $str .= @table == 1 ? "This resource takes no parameters.\n\n" : sprintf "%s\n", _ascii_table(\@table, '  ');
   $str;
 }
 
@@ -143,6 +143,7 @@ PATH:
     for my $method (sort keys %{$paths->{$path}}) {
       my $info = $paths->{$path}{$method};
       my $ext  = $info->{externalDocs};
+      my $resource_url;
 
       $str .= sprintf "=head2 %s\n\n", $info->{operationId} || join(' ', uc $method, $path);
       $str .= "  THIS RESOURCE IS DEPRECATED!\n\n" if $info->{deprecated};
@@ -151,11 +152,11 @@ PATH:
 
       next METHOD if $info->{deprecated};
       $url->query(Mojo::Parameters->new);
-      $url = $url->to_abs;
-      $url =~ s!/%7B([^%]+)%7D!/{$1}!g;
+      $resource_url = $url->to_abs;
+      $resource_url =~ s!/%7B([^%]+)%7D!/{$1}!g;
 
       $str .= sprintf "=head3 Resource URL\n\n";
-      $str .= sprintf "  %s %s\n\n", uc $method, $url;
+      $str .= sprintf "  %s %s\n\n", uc $method, $resource_url;
       $str .= $self->_path_request_to_string($info);
       $str .= $self->_path_response_to_string($info);
     }
@@ -176,6 +177,12 @@ sub _schema_array_to_string {
   $str .= _sprintf($depth + 1, "...\n");
   $str .= _sprintf($depth,     "]\n");
   $str;
+}
+
+sub _schema_boolean_to_string {
+  my ($self, $schema, $depth) = @_;
+
+  sprintf "%s, // %s\n", 'boolean', _type_description($schema);
 }
 
 sub _schema_enum_to_string {

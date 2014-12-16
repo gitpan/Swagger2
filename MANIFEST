@@ -3,6 +3,11 @@
 .travis.yml
 Changes
 cpanfile
+lib/Mojolicious/Command/swagger2-public/ace.js
+lib/Mojolicious/Command/swagger2-public/mode-json.js
+lib/Mojolicious/Command/swagger2-public/mode-yaml.js
+lib/Mojolicious/Command/swagger2-public/theme-solarized_dark.js
+lib/Mojolicious/Command/swagger2-public/worker-json.js
 lib/Mojolicious/Command/swagger2.pm
 lib/Mojolicious/Plugin/Swagger2.pm
 lib/Swagger2.pm
@@ -18,6 +23,7 @@ t/data/cache/80aad97ce8edcce8a0968125b84dd705
 t/data/petstore.json
 t/data/petstore.pod
 t/data/petstore.yaml
+t/editor.t
 t/expand.t
 t/jv-allof.t
 t/jv-anyof.t
@@ -34,6 +40,7 @@ t/jv-string.t
 t/jv-union.t
 t/load-json.t
 t/load-yaml.t
+t/parse-json.t
 t/plugin.t
 t/pod-as-string.t
 t/swagger.t
