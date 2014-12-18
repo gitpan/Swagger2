@@ -1,5 +1,11 @@
 Changelog for Swagger2
 
+0.14     Thu Dec 18 16:06:02 2014
+       * Add both "summary" and "description" to POD
+       * Add print styling for editor
+       * Can resize editor area
+       * Fix detecting yaml/json mode in editor
+
 0.13     Thu Dec 18 14:06:26 2014
        * Fix "not" logic in SchemaValidator
 
