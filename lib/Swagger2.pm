@@ -6,7 +6,7 @@ Swagger2 - Swagger RESTful API Documentation
 
 =head1 VERSION
 
-0.14
+0.15
 
 =head1 DESCRIPTION
 
@@ -56,7 +56,7 @@ use File::Spec;
 use constant CACHE_DIR => $ENV{SWAGGER2_CACHE_DIR} || '';
 use constant DEBUG     => $ENV{SWAGGER2_DEBUG}     || 0;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 # Should be considered internal
 our $SPEC_FILE = do {
@@ -224,8 +224,9 @@ sub parse {
   my $type = $doc =~ /^\s*\{/s ? 'json' : 'yaml';
   my $namespace = 'http://127.0.0.1/#';
 
+  delete $self->{base_url};
   $self->{url} = Mojo::URL->new($namespace);
-  $self->_parse($doc, $type, $namespace);
+  $self->{tree} = $self->_parse($doc, $type, $namespace);
   $self;
 }
 
