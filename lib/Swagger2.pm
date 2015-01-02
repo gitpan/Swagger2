@@ -6,7 +6,7 @@ Swagger2 - Swagger RESTful API Documentation
 
 =head1 VERSION
 
-0.15
+0.16
 
 =head1 DESCRIPTION
 
@@ -56,12 +56,10 @@ use File::Spec;
 use constant CACHE_DIR => $ENV{SWAGGER2_CACHE_DIR} || '';
 use constant DEBUG     => $ENV{SWAGGER2_DEBUG}     || 0;
 
-our $VERSION = '0.15';
+our $VERSION = '0.16';
 
 # Should be considered internal
-our $SPEC_FILE = do {
-  join '/', File::Spec->splitdir(File::Basename::dirname(__FILE__)), 'Swagger2', 'schema.json';
-};
+our $SPEC_FILE = File::Spec->catfile(File::Basename::dirname(__FILE__), 'Swagger2', 'schema.json');
 
 my @YAML_MODULES = qw( YAML::Tiny YAML YAML::Syck YAML::XS );
 my $YAML_MODULE = $ENV{SWAGGER2_YAML_MODULE} || (grep { eval "require $_;1" } @YAML_MODULES)[0] || 'Swagger2::FALLBACK';
@@ -128,7 +126,7 @@ has base_url => sub {
 };
 
 has specification => sub {
-  shift->_load(Mojo::URL->new($SPEC_FILE));
+  shift->_load(Mojo::URL->new->path($SPEC_FILE));
 };
 
 has tree => sub {
