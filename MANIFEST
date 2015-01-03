@@ -20,7 +20,7 @@ README
 t/00-basic.t
 t/Api.pm
 t/bodytest.t
-t/data/bodytest.yaml
+t/data/bodytest.json
 t/data/cache/80aad97ce8edcce8a0968125b84dd705
 t/data/petstore.json
 t/data/petstore.pod
