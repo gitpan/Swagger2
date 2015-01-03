@@ -22,7 +22,8 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Test::More" : "0.88"
+            "Test::More" : "0.88",
+            "Test::Warnings" : "0.016"
          }
       },
       "configure" : {
@@ -46,5 +47,5 @@
          "url" : "https://github.com/jhthorsen/swagger2.git"
       }
    },
-   "version" : "0.16"
+   "version" : "0.17"
 }

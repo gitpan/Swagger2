@@ -4,6 +4,7 @@ author:
   - 'Jan Henning Thorsen <jhthorsen@cpan.org>'
 build_requires:
   Test::More: 0.88
+  Test::Warnings: 0.016
 configure_requires:
   ExtUtils::MakeMaker: 0
 dynamic_config: 1
@@ -23,4 +24,4 @@ resources:
   bugtracker: https://github.com/jhthorsen/swagger2/issues
   homepage: https://github.com/jhthorsen/swagger2
   repository: https://github.com/jhthorsen/swagger2.git
-version: 0.16
+version: 0.17

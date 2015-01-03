@@ -15,7 +15,8 @@ WriteMakefile(
     },
   },
   BUILD_REQUIRES => {
-  'Test::More' => '0.88'
+  'Test::More' => '0.88',
+  'Test::Warnings' => '0.016'
 }
 ,
   PREREQ_PM => {

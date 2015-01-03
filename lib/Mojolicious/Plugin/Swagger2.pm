@@ -256,7 +256,8 @@ sub _validate_input {
   my $body    = $c->req->json || $c->req->body_params->to_hash || {};
   my (%input, %v);
 
-  for my $p (@{$config->{parameters} || []}) {
+  for (@{$config->{parameters} || []}) {
+    my $p = $_;
     my @e;
     my $in   = $p->{in};
     my $name = $p->{name};
