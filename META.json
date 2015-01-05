@@ -4,7 +4,7 @@
       "Jan Henning Thorsen <jhthorsen@cpan.org>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.143240",
    "license" : [
       "artistic_2"
    ],
@@ -47,5 +47,5 @@
          "url" : "https://github.com/jhthorsen/swagger2.git"
       }
    },
-   "version" : "0.20"
+   "version" : "0.21"
 }
